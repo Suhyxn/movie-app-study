@@ -1,6 +1,6 @@
 <template>
   <Headline />
-  <Search />s
+  <Search />
 </template>
 
 <script>
