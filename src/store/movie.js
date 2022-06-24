@@ -5,7 +5,7 @@ export default {
   namespaced: true,
   state: () => ({
       movies: [],
-      message: '',
+      message: 'Seatch for the movie title!',
       loading: false
   }),
   getters: {},
@@ -21,6 +21,10 @@ export default {
   },
   actions: {
     async searchMovies({ commit, state }, payload) {
+      commit('updateState', {
+        message: '',
+        loading: true
+      })
       try {
         const res = await _fetchMovie({
           ...payload,
@@ -54,6 +58,10 @@ export default {
         commit('updateState', {
           movies: [],
           message
+        })
+      } finally {
+        commit('updateState', {
+          loading: false
         })
       }
     }
