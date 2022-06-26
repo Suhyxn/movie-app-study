@@ -21,6 +21,7 @@ export default {
   },
   actions: {
     async searchMovies({ commit, state }, payload) {
+      if (state.loading) return 
       commit('updateState', {
         message: '',
         loading: true
