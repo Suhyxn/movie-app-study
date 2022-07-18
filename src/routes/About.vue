@@ -81,7 +81,7 @@ export default {
 
   .name {
     font-size: 40px;
-    font-family: "0swald", sans-serif;
+    font-family: "Oswald", sans-serif;
     margin-bottom: 20px;
   }
 }
