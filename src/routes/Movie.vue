@@ -76,7 +76,7 @@
 </template>
 
 <script>
-// import { METHOD_TYPES } from '@babel/types'
+import { mapState } from 'vuex'
 import Loader from '~/components/Loader'
 
 export default {
@@ -89,16 +89,15 @@ export default {
     }
   },
   computed: {
-    theMovie() {
-      return this.$store.state.movie.theMovie
-    },
-    loading() {
-      return this.$store.state.movie.loading
-    }
+    ...mapState('movie', [
+      'theMovie',
+      'loading'
+    ])
   },
   created() {
     console.log(this.$route)
     this.$store.dispatch('movie/searchMovieWithId', {
+      // movie/tt123762
       id: this.$route.params.id
     })
   },
