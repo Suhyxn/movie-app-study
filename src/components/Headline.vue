@@ -23,7 +23,7 @@ h1 {
   font-family: "Oswald", sans-serif;
   font-size: 80px;
   span {
-    color: $primary
+    color: $primary;
   }
 }
 p {
