@@ -1,21 +1,18 @@
-const userA = {
-  name: 'HEROPY',
-  age: 85
-}
-const userB = {
-  name: 'Neo',
-  age: 22
-}
+import axios from 'axios'
+import { fetchMovieTitle } from './example'
 
-test('데이터가 일치해야 합니다',() => {
-  expect(userA.age).toBe(85)
-  expect(userA).toEqual({
-    name: 'HEROPY',
-    age: 85
+describe('비동기테스트', () => {
+  test('영화 제목 변환', async () => {
+    axios.get = jest.fn(() => {
+      return new Promise(resolve => {
+        resolve({
+          data: {
+            Title: 'Frozen II'
+          }
+        })
+      }) 
+    })
+    const title = await fetchMovieTitle()
+    expect(title).toBe('Frozen ii')
   })
-})
-
-test('데이터가 일치하지 않아야 합니다', () => {
-  expect(userB.name).not.toBe('HEROPY')
-  expect(userB).not.toBe(userA)
 })
